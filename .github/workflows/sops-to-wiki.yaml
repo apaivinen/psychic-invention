@@ -26,6 +26,11 @@ jobs:
         run: |
           mkdir -p wiki/SOPs
           rsync -av --delete SOPs/ wiki/SOPs/
+      
+      - name: Copy other files
+        run: |
+            mkdir -p wiki/other
+            rsync -av --delete Other/ wiki/Other/
 
       - name: Commit and Push
         run: |
@@ -34,6 +39,6 @@ jobs:
           if git diff-index --quiet HEAD; then
             echo "No changes to commit"
           else
-            git commit -m "Automated update from SOPs folder [$(date +'%Y-%m-%d')]"
+            git commit -m "Automated update from docs to wiki [$(date +'%Y-%m-%d')]"
             git push
           fi
