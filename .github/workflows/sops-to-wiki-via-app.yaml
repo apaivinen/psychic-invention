@@ -21,7 +21,10 @@ jobs:
       - name: Clean up existing 'wiki' directory if it exists
         run: |
           if [ -d "wiki" ]; then
+            echo "Removing existing 'wiki' directory"
             rm -rf wiki
+          else
+            echo "'wiki' directory does not exist"
           fi
 
       - name: Checkout repo
