@@ -1,4 +1,4 @@
-name: Sync documentation to Wiki
+name: Sync SOPs to Wiki
 
 on:
   schedule:
@@ -27,11 +27,6 @@ jobs:
           mkdir -p wiki/SOPs
           rsync -av --delete SOPs/ wiki/SOPs/
       
-      - name: Copy other files
-        run: |
-            mkdir -p wiki/other
-            rsync -av --delete Other/ wiki/Other/
-
       - name: Commit and Push
         run: |
           cd wiki
