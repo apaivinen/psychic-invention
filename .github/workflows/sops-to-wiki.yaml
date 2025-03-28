@@ -12,6 +12,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      - name: Remove existing wiki directory
+        run: |
+          if [ -d wiki ]; then rm -rf wiki; fi
+
       - name: Clone Wiki
         run: |
           git config --global user.name "github-actions[bot]"
