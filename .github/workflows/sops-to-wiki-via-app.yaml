@@ -18,9 +18,11 @@ jobs:
           private_key: ${{ secrets.PRIVATE_KEY }}
           installation_id: ${{ secrets.INSTALLATION_ID }}
 
-      - name: Remove existing wiki directory
+      - name: Clean up existing 'wiki' directory if it exists
         run: |
-          if [ -d wiki ]; then rm -rf wiki; fi
+          if [ -d "wiki" ]; then
+            rm -rf wiki
+          fi
 
       - name: Checkout repo
         uses: actions/checkout@v3
