@@ -1,3 +1,4 @@
+name: Sync SOPs to Wiki via APP
 jobs:
   sync-wiki:
     runs-on: ubuntu-latest
