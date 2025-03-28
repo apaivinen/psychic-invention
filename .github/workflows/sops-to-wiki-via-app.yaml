@@ -18,19 +18,14 @@ jobs:
           private_key: ${{ secrets.PRIVATE_KEY }}
           installation_id: ${{ secrets.INSTALLATION_ID }}
 
-      - name: Clean up existing 'wiki' directory if it exists
-        run: |
-          if [ -d "wiki" ]; then
-            echo "Removing existing 'wiki' directory"
-            rm -rf wiki
-          else
-            echo "'wiki' directory does not exist"
-          fi
-
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
           token: ${{ steps.generate_token.outputs.token }}
+
+      - name: Remove existing wiki directory
+        run: |
+          if [ -d wiki ]; then rm -rf wiki; fi
 
       - name: Clone Wiki
         run: |
