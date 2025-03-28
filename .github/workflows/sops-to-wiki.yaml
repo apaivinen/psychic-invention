@@ -20,7 +20,7 @@ jobs:
 
       - name: Copy SOP files
         run: |
-          rsync -av --delete SOPs/ wiki/
+          rsync -av --delete SOPs/ wiki/SOPs
 
       - name: Commit and Push
         run: |
