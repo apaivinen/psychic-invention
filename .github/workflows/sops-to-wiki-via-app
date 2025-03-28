@@ -10,6 +10,10 @@ jobs:
           private_key: ${{ secrets.PRIVATE_KEY }}
           installation_id: ${{ secrets.INSTALLATION_ID }}
 
+      - name: Remove existing wiki directory
+        run: |
+          if [ -d wiki ]; then rm -rf wiki; fi
+
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
@@ -23,7 +27,8 @@ jobs:
 
       - name: Sync and Push
         run: |
-          rsync -av --delete SOP/ wiki/
+          mkdir -p wiki/SOPs
+          rsync -av --delete SOPs/ wiki/SOPs/
           cd wiki
           git add .
           if git diff-index --quiet HEAD; then
