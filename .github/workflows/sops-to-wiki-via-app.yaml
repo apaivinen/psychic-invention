@@ -35,7 +35,7 @@ jobs:
 
       - name: Clone Wiki
         run: |
-          git config --global user.name "Vellamo"
+          git config --global user.name "Documentation Goblin"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git clone https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/${{ github.repository }}.wiki.git wiki
 
