@@ -1,10 +1,16 @@
 name: Sync SOPs to Wiki via APP
 
+description: |
+  This workflow syncs SOPs from the main repository to the wiki using a GitHub App token.
+  It runs daily at 3 AM UTC and can also be triggered manually.
+  The workflow uses the `tibdex/github-app-token` action to generate a token for the GitHub App,
+  which is then used to clone the wiki repository and push changes.
+  The `rsync` command is used to synchronize the SOPs directory with the wiki.
+
 on:
   schedule:
     - cron: '0 3 * * *' # every day at 3 AM UTC
   workflow_dispatch: # also allows manual triggering
-
   
 jobs:
   sync-wiki:
