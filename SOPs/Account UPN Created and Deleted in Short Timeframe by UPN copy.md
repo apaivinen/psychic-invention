@@ -10,7 +10,7 @@ Ref : [https://docs.microsoft.com/azure/active-directory/fundamentals/security-
 
 ### Tactics:
 
-- Initial Access - The adversary is trying to get into your network.
+- Initial Access - The adversary is trying to get into your network. CHANGE
 
 ### Techniques
 
